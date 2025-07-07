@@ -1,6 +1,9 @@
 # This definitely needs cleaning
 using OrdinaryDiffEqLowOrderRK, ODEProblemLibrary, DiffEqDevTools
 using Test, Random
+using DiffEqBase
+using SciMLBase
+
 Random.seed!(100)
 
 ## Convergence Testing
@@ -80,3 +83,6 @@ prob_ode_nonlinear = ODEProblem(
     sim160 = test_convergence(dts, prob, Anas5(w = 2))
     @test sim160.𝒪est[:l2]≈4 atol=2 * testTol
 end
+
+# Re-export the most common user-facing types/functions
+export ODEProblem, ODEFunction, solve

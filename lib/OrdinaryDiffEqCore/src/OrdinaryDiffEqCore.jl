@@ -5,7 +5,6 @@ if isdefined(Base, :Experimental) &&
     @eval Base.Experimental.@max_methods 1
 end
 
-using DocStringExtensions
 using Reexport
 @reexport using DiffEqBase
 
